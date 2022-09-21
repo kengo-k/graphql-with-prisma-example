@@ -1,0 +1,9 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+    container_name: study-react-with-graphql
+    tty: true
+    volumes:
+      - "./app:/home/node/app"
