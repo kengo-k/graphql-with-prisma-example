@@ -8,3 +8,6 @@ yarn run graphql-codegen --config graphql/codegen-server.yaml
 
 ##### クライアントの定義を生成
 yarn add -D @graphql-codegen/typed-document-node @graphql-codegen/typescript-operations
+
+##### クライアントのライブラリ
+yarn add @apollo/client
