@@ -1,8 +1,18 @@
-type User {
+type Todo {
+  id: ID!
+  title: String!
+  category: Category!
+  priority: Int!
+  done: Boolean!
+  created_at: String!
+  updated_at: String!
+}
+
+type Category {
   id: ID!
   name: String!
 }
 
 type Query {
-  users: [User!]!
+  todos(category: String!): [Todo!]!
 }

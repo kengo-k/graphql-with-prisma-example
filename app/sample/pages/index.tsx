@@ -4,7 +4,7 @@ import {
   ApolloProvider,
   useQuery,
 } from '@apollo/client'
-import { GetUsersNameDocument } from '../graphql/dist/generated-client'
+import { GetTodoListDocument } from '../graphql/dist/generated-client'
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/api/graphql',
@@ -12,16 +12,20 @@ const client = new ApolloClient({
 })
 
 function Users() {
-  const { loading, error, data } = useQuery(GetUsersNameDocument)
+  const { loading, error, data } = useQuery(GetTodoListDocument, {
+    variables: {
+      category: 'LIFE',
+    },
+  })
 
   if (loading) return <p>Loading...</p>
   if (error || !data) return <p>Error</p>
 
   return (
     <ul>
-      {data.users.map((user, index: number) => {
+      {data.todos.map((user, index: number) => {
         console.log(Object.getOwnPropertyNames(user)) // ['__typename', 'name']
-        return <li key={index}>{user.name}</li>
+        return <li key={index}>{user.title}</li>
       })}
     </ul>
   )

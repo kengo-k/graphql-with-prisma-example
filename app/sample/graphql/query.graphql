@@ -1,5 +1,13 @@
-query getUsersName {
-  users {
-    name
+query getTodoList($category: String!) {
+  todos(category: $category) {
+    id
+    title
+    category {
+      name
+    }
+    priority
+    done
+    created_at
+    updated_at
   }
 }

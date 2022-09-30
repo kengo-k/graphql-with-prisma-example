@@ -13,21 +13,39 @@ export type Scalars = {
   Float: number;
 };
 
-export type Query = {
-  __typename?: 'Query';
-  users: Array<User>;
-};
-
-export type User = {
-  __typename?: 'User';
+export type Category = {
+  __typename?: 'Category';
   id: Scalars['ID'];
   name: Scalars['String'];
 };
 
-export type GetUsersNameQueryVariables = Exact<{ [key: string]: never; }>;
+export type Query = {
+  __typename?: 'Query';
+  todos: Array<Todo>;
+};
 
 
-export type GetUsersNameQuery = { __typename?: 'Query', users: Array<{ __typename?: 'User', name: string }> };
+export type QueryTodosArgs = {
+  category: Scalars['String'];
+};
+
+export type Todo = {
+  __typename?: 'Todo';
+  category: Category;
+  created_at: Scalars['String'];
+  done: Scalars['Boolean'];
+  id: Scalars['ID'];
+  priority: Scalars['Int'];
+  title: Scalars['String'];
+  updated_at: Scalars['String'];
+};
+
+export type GetTodoListQueryVariables = Exact<{
+  category: Scalars['String'];
+}>;
 
 
-export const GetUsersNameDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getUsersName"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<GetUsersNameQuery, GetUsersNameQueryVariables>;
+export type GetTodoListQuery = { __typename?: 'Query', todos: Array<{ __typename?: 'Todo', id: string, title: string, priority: number, done: boolean, created_at: string, updated_at: string, category: { __typename?: 'Category', name: string } }> };
+
+
+export const GetTodoListDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getTodoList"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"category"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"todos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"category"},"value":{"kind":"Variable","name":{"kind":"Name","value":"category"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"category"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}},{"kind":"Field","name":{"kind":"Name","value":"priority"}},{"kind":"Field","name":{"kind":"Name","value":"done"}},{"kind":"Field","name":{"kind":"Name","value":"created_at"}},{"kind":"Field","name":{"kind":"Name","value":"updated_at"}}]}}]}}]} as unknown as DocumentNode<GetTodoListQuery, GetTodoListQueryVariables>;
