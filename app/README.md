@@ -17,11 +17,24 @@ yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/ty
 yarn add -D @graphql-codegen/typed-document-node @graphql-codegen/typescript-operations
 ```
 
-##### DBの初期化
+##### DBの初期化〜マイグレーション
 
 ```
+# schemaファイルを生成する
 npx prisma init --datasource-provider sqlite
+
+# shemaファイルにモデルを定義しマイグレーションを実行する
+# --nameで指定した名称でマイグレーションSQLを生成する
+npx prisma migrate dev --name init
 ```
+
+実際にテーブルが作成されたかどうかを以下のコマンドで確認する
+
+```
+npx prisma studio
+```
+
+ローカルにサーバが起動しDBの構成を参照できる。
 
 ##### yamlファイルから型定義を生成する
 
