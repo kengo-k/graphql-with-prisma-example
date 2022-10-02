@@ -17,6 +17,12 @@ yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/ty
 yarn add -D @graphql-codegen/typed-document-node @graphql-codegen/typescript-operations
 ```
 
+##### DBの初期化
+
+```
+npx prisma init --datasource-provider sqlite
+```
+
 ##### yamlファイルから型定義を生成する
 
 - サーバ側の定義を生成
