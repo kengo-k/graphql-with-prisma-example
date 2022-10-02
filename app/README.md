@@ -13,8 +13,12 @@ yarn add -D prisma
 # GraphQL関連
 yarn add graphql
 yarn add @apollo/client
+
 yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-resolvers
 yarn add -D @graphql-codegen/typed-document-node @graphql-codegen/typescript-operations
+
+# prismaのスキーマ定義からGraphQLのリゾルバを生成するライブラリ
+yarn add -D type type-graphql typegraphql-prisma graphql-scalars graphql-fields
 ```
 
 ##### DBの初期化〜マイグレーション
