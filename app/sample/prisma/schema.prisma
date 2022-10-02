@@ -10,17 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-generator gen {
-  provider = "prisma-client-js"
-}
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  category  String
+  priority  Int
+  done      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
 
-generator typegraphql {
-  provider = "typegraphql-prisma"
-  output = "../src/generated/typegraphql-prisma"
-}
-
-model User {
-  id  Int @id @default(autoincrement())
-  email String @unique
-  name  String?
+  @@map(name: "tasks")
 }
