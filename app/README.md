@@ -7,6 +7,10 @@ yarn create next-app sample --ts
 ##### ライブラリのインストール
 
 ```
+# ORM関連
+yarn add -D prisma
+
+# GraphQL関連
 yarn add graphql
 yarn add @apollo/client
 yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-resolvers
