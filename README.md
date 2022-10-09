@@ -59,7 +59,13 @@ npx prisma init --datasource-provider sqlite
 npx prisma migrate dev
 ```
 
-実際にテーブルが作成されたかどうかを以下のコマンドで確認する
+以下コマンドを実行し初期データを投入する
+
+```
+./seed.sh
+```
+
+実際にテーブルが作成されていること、データが投入されていることを以下のコマンドで確認する
 
 ```
 npx prisma studio
