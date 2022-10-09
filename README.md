@@ -37,21 +37,26 @@ yarn add -D @types/micro-cors
 #
 yarn add type-graphql typegraphql-prisma
 
-# 生成コードが必要になる依存パッケージ追加
+# 生成されたコードが依存するパッケージ追加
 yarn add graphql-fields graphql-scalars
 yarn add class-validator reflect-metadata
 yarn add -D @types/graphql-fields
 ```
 
-##### DBの初期化〜マイグレーション
+##### init database
+
+下記コマンドを実行し`.env`、`schema.prisma`を生成する
+(一度だけ実行すればよい。※すでに実行＆コミット済み)
 
 ```
 # schemaファイルを生成する
 npx prisma init --datasource-provider sqlite
+```
 
-# shemaファイルにモデルを定義しマイグレーションを実行する
-# --nameで指定した名称でマイグレーションSQLを生成する
-npx prisma migrate dev --name init
+下記コマンドを実行しデータベースファイルの生成＆マイグレーションを実施する
+
+```
+npx prisma migrate dev
 ```
 
 実際にテーブルが作成されたかどうかを以下のコマンドで確認する
@@ -62,17 +67,10 @@ npx prisma studio
 
 ローカルにサーバが起動しDBの構成を参照できる。
 
-##### yamlファイルから型定義を生成する
+##### generate graphql schema
 
-- サーバ側の定義を生成
-
-```
-yarn run graphql-codegen --config graphql/codegen-server.yaml
-```
-
-- クライアント側の定義を生成
+下記コマンドを実行しGraphQLのスキーマを生成する
 
 ```
-yarn run graphql-codegen --config graphql/codegen-client.yaml
+yarn generate
 ```
-
