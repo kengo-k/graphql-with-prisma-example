@@ -1,24 +1,46 @@
-##### プロジェクトの作成
+##### create project
+
 ```
 yarn init
 yarn create next-app sample --ts
 ```
 
-##### ライブラリのインストール
+##### install packages
 
 ```
-# ORM関連
+#
+# ORM
+#
+
+# テーブル生成やマイグレーションに使用するCLIツール
 yarn add -D prisma
+# プログラムから使用するクライアント
+yarn add @prisma/client
 
-# GraphQL関連
+#
+# GraphQL
+#
+
+# GraphQL本体
 yarn add graphql
+# GraphQLクライアント
 yarn add @apollo/client
+# GraphQLサーバ
+yarn add apollo-server-micro
+# CORS対応
+yarn add micro-cors
+yarn add -D @types/micro-cors
 
-yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-resolvers
-yarn add -D @graphql-codegen/typed-document-node @graphql-codegen/typescript-operations
+#
+# TypeGraphQL
+# (Prismaの定義からGraphQLのスキーマ/リゾルバを自動生成する)
+#
+yarn add type-graphql typegraphql-prisma
 
-# prismaのスキーマ定義からGraphQLのリゾルバを生成するライブラリ
-yarn add -D type type-graphql typegraphql-prisma graphql-scalars graphql-fields
+# 生成コードが必要になる依存パッケージ追加
+yarn add graphql-fields graphql-scalars
+yarn add class-validator reflect-metadata
+yarn add -D @types/graphql-fields
 ```
 
 ##### DBの初期化〜マイグレーション
