@@ -21,3 +21,12 @@ model Task {
 
   @@map(name: "tasks")
 }
+
+generator gen {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../generated/typegraphql-prisma"
+}
