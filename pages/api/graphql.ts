@@ -2,7 +2,7 @@ import "reflect-metadata";
 
 import { ApolloServer } from 'apollo-server-micro'
 import Cors from 'micro-cors'
-import { createContext } from '../../graphql/context'
+import { createContext } from '../../lib/context'
 
 import { resolvers } from "../../generated/typegraphql-prisma";
 import { buildSchemaSync } from 'type-graphql'
