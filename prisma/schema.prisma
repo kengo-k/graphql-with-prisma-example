@@ -29,4 +29,5 @@ generator gen {
 generator typegraphql {
   provider = "typegraphql-prisma"
   output   = "../generated/typegraphql-prisma"
+  emitTranspiledCode = true
 }
