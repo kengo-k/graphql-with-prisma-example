@@ -2,13 +2,18 @@ import 'reflect-metadata'
 
 import { ApolloServer } from 'apollo-server-micro'
 import Cors from 'micro-cors'
+import { join } from 'path'
 import { buildSchemaSync } from 'type-graphql'
 
 import { resolvers } from '@generated/typegraphql-prisma'
 
 import { createContext } from '~/lib/context'
 
-const schema = buildSchemaSync({ resolvers, validate: false })
+const schema = buildSchemaSync({
+  resolvers,
+  validate: false,
+  emitSchemaFile: join(process.cwd(), 'graphql', 'schema.graphql'),
+})
 
 const cors = Cors()
 
