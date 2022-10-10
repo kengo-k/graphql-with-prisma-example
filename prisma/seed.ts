@@ -1,4 +1,4 @@
-import { prisma } from '../lib/prisma'
+import { prisma } from '~/lib/prisma'
 
 const main = async () => {
   await prisma.task.create({
