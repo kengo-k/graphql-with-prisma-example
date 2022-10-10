@@ -87,3 +87,5 @@ npx prisma studio
 ```
 yarn generate
 ```
+
+yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-graphql-request
