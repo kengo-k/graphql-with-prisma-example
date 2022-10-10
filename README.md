@@ -9,6 +9,13 @@ yarn create next-app sample --ts
 
 ```
 #
+# base
+#
+
+# seed.shを実行するときにts-nodeを使う
+yarn add -D ts-node
+
+#
 # ORM
 #
 
