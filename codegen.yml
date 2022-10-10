@@ -1,4 +1,9 @@
-schema: "http://localhost:3000/api/graphql"
+# 起動しているGraphQLサーバからスキーマをロードする場合
+#schema: "http://localhost:3000/api/graphql"
+
+# 生成したスキーマファイルからスキーマをロードする場合
+schema: "graphql/schema.graphql"
+
 documents: graphql/**/*.graphql
 generates:
   generated/graphql-codegen/client.ts:

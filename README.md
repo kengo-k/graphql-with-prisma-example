@@ -107,10 +107,10 @@ generated/typegraphql-prisma配下にコードが生成される
 
 ##### generate graphql client from graphql queries
 
-`yarn dev`を実行しGraphQLサーバを起動した状態で下記コマンドを実行する
-
 ```
 yarn generate-client
 ```
 
-generated/graphql-codegen配下にコードが生成される
+generated/graphql-codegen配下にコードが生成される。
+
+※graphql/schema.graphqlファイル(自動生成ファイル)に記載されたスキーマを参照する。スキーマに合致しないクエリを書くとエラーになります。
