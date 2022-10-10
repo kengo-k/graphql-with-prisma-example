@@ -2,10 +2,9 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
 } from '@apollo/client'
 
-import {GetAllTasksDocument} from "../generated/graphql-codegen/client"
+import { useGetAllTasksQuery} from "../generated/graphql-codegen/client"
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/api/graphql',
@@ -13,15 +12,15 @@ const client = new ApolloClient({
 })
 
 function Users() {
-  const { loading, error, data } = useQuery(GetAllTasksDocument)
+  const { loading, error, data } = useGetAllTasksQuery()
 
   if (loading) return <p>Loading...</p>
   if (error || !data) return <p>Error</p>
 
   return (
     <ul>
-      {data.tasks.map((task, index: number) => {
-        return <li key={index}>{task.title}</li>
+      {data.tasks.map((t, index: number) => {
+        return <li key={index}>{t.title}</li>
       })}
     </ul>
   )
