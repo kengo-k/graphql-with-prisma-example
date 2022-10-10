@@ -15,6 +15,9 @@ yarn create next-app sample --ts
 # seed.shを実行するときにts-nodeを使う
 yarn add -D ts-node
 
+# prettier
+yarn add -D prettier @trivago/prettier-plugin-sort-imports
+
 #
 # ORM
 #
