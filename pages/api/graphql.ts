@@ -4,7 +4,8 @@ import { ApolloServer } from 'apollo-server-micro'
 import Cors from 'micro-cors'
 import { buildSchemaSync } from 'type-graphql'
 
-import { resolvers } from '~/generated/typegraphql-prisma'
+import { resolvers } from '@generated/typegraphql-prisma'
+
 import { createContext } from '~/lib/context'
 
 const schema = buildSchemaSync({ resolvers, validate: false })

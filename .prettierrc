@@ -6,6 +6,7 @@
   "importOrder": [
     "reflect-metadata",
     "<THIRD_PARTY_MODULES>",
+    "^[@]generated",
     "^[~/]",
     "^[./]"
   ],

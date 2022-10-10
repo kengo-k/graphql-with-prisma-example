@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
-import { useGetAllTasksQuery } from '~/generated/graphql-codegen/client'
+import { useGetAllTasksQuery } from '@generated/graphql-codegen/client'
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/api/graphql',
