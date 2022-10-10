@@ -51,6 +51,18 @@ yarn add type-graphql typegraphql-prisma
 yarn add graphql-fields graphql-scalars
 yarn add class-validator reflect-metadata
 yarn add -D @types/graphql-fields
+
+#
+# GraphQL Codegen
+# GraphQLのクエリ(*.graphql)からapollo-clientで使用するtypescriptコードを生成する
+#
+yarn add -D \
+  @graphql-codegen/cli \
+  @graphql-codegen/typescript \
+  @graphql-codegen/typescript-operations \
+  @graphql-codegen/typescript-graphql-request \
+  @graphql-codegen/typescript-react-apollo
+
 ```
 
 ##### init database
@@ -83,12 +95,22 @@ npx prisma studio
 
 ローカルにサーバが起動しDBの構成を参照できる。
 
-##### generate graphql schema
+##### generate graphql schema from prisma
 
 下記コマンドを実行しGraphQLのスキーマを生成する
 
 ```
-yarn generate
+yarn generate-schema
 ```
 
-yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-graphql-request @graphql-codegen/typescript-react-apollo
+generated/typegraphql-prisma配下にコードが生成される
+
+##### generate graphql client from graphql queries
+
+`yarn dev`を実行しGraphQLサーバを起動した状態で下記コマンドを実行する
+
+```
+yarn generate-client
+```
+
+generated/graphql-codegen配下にコードが生成される
